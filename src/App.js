@@ -26,10 +26,18 @@ function App() {
     }
   }, [gasto, creargasto, gastos, restante]);
 
-  // Funcion que elimina un gasto.
+  // Funcion que elimina un gasto y retorna el presupuesto al monto previo.
   const eliminarGasto = (id) => {
     const nuevosGastos = gastos.filter((gasto) => gasto.id !== id);
     guardarGastos(nuevosGastos);
+    //nuevosGastos es un arreglo de objetos. Usar map para tomar de cada objeto su cantidad.
+    const cantidadesEnObjetos = nuevosGastos.map((obj) => {
+      return obj.cantidad;
+    });
+    // Sumar cantidades.
+    const sumaDeCantidades = cantidadesEnObjetos.reduce((a, b) => a + b, 0);
+    // Setear el state de restante al monto previo al gasto eliminado.
+    guardarRestante(presupuesto - sumaDeCantidades);
   };
 
   return (
