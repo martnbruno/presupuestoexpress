@@ -1,7 +1,7 @@
 # Presupuesto Express
 
 ### 1. Clone this Repo
-https://github.com/m-bruno/react-task-tracker.git
+https://github.com/martinbrunodev/presupuestoexpress.git
 
 ### 2. Install dependencies
 npm install
